@@ -1,0 +1,203 @@
+
+a:hover{
+    text-decoration: underline dotted; 
+    text-shadow: 2px 0px 15px #a468ee;
+}
+ cursor {
+    cursor: pointer;
+}
+body {
+ background-color: rgb(255, 255, 255);
+}
+.list  {
+    text-align: center;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    
+}
+aside {
+    float: right;
+}
+.link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #FFD166;
+    font-weight: 700;
+    
+
+}
+.happy {
+    color: #aa98fb;
+   font-style: italic;
+    font-size: 10em;
+    text-align: center;
+    text-shadow: 2px 0px 15px #FFD166;
+margin: 40px;
+}
+
+.greeting {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        position: relative;
+font-variant: small-caps;
+background-color: #b36cfe;
+color: #FFD166;
+border-radius: 35px;
+margin: 30px 30px;
+padding: 30px;
+}
+.header {
+    background-color: #b36cfe ;
+    border-radius: 5px;
+
+}
+.button {
+    padding: 20px 40px;
+    align-items: center;
+    text-align: center;
+    font-size: 32px;
+    color: white;
+    background:  #b36cfe;
+    border-radius: 14px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+
+.confetti {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+
+.piece {
+    position: absolute;
+    width: 10px;
+    height: 24px;
+    opacity: 0;
+    border-radius: 3px;
+}
+
+
+.piece:nth-child(1) { background: #ff4d4d; }
+.piece:nth-child(2) { background: #ffd24d; }
+.piece:nth-child(3) { background: #4dff88; }
+.piece:nth-child(4) { background: #4db8ff; }
+.piece:nth-child(5) { background: #ff66ff; }
+.piece:nth-child(6) { background: #ffffff; }
+
+.button:active + .confetti .piece {
+    animation: explode 1s ease-out forwards;
+}
+
+.piece:nth-child(1) { --x: 120px;  --y: -150px; }
+.piece:nth-child(2) { --x: -130px; --y: -120px; }
+.piece:nth-child(3) { --x: 150px;  --y: 100px; }
+.piece:nth-child(4) { --x: -140px; --y: 120px; }
+.piece:nth-child(5) { --x: 0px;    --y: -180px; }
+.piece:nth-child(6) { --x: 180px;  --y: 0px; }
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) rotate(720deg);
+    }
+}
+.confetti1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, #ff4d4d 3px, transparent 4px),
+        radial-gradient(circle, #ffd24d 3px, transparent 4px),
+        radial-gradient(circle, #4dff88 3px, transparent 4px),
+        radial-gradient(circle, #6bc4ff 3px, transparent 4px),
+        radial-gradient(circle, #ff66ff 3px, transparent 4px);
+
+    background-size: 200px 200px;
+    animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+    from {
+        background-position: 0 0, 50px 50px, 100px 0, 150px 50px, 200px 0;
+    }
+    to {
+        background-position: 0 1000px, 50px 1050px, 100px 1000px, 150px 1050px, 200px 1000px;
+    }
+}
+.click-area {
+    position: relative;
+    font-size: 28px;
+    color: white;
+}
+
+.hearts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+}
+
+
+.heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: red;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -7.5px;
+    left: 0;
+}
+
+.heart::after {
+    left: -7.5px;
+    top: 0;
+}
+
+.click-area:active .heart {
+    animation: pop 0.8s ease-out forwards;
+}
+
+/* Різні напрямки */
+.heart:nth-child(1) { --x: -40px; --y: -60px; }
+.heart:nth-child(2) { --x: 40px;  --y: -50px; }
+.heart:nth-child(3) { --x: -50px; --y: 40px; }
+.heart:nth-child(4) { --x: 50px;  --y: 50px; }
+.heart:nth-child(5) { --x: 0px;   --y: -70px; }
+
+@keyframes pop {
+    0% {
+        opacity: 1;
+        transform: rotate(45deg) translate(0,0) scale(0.5);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(var(--x), var(--y)) scale(1.2);
+    }
+}
